@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>अंतः अस्ति प्रारंभः - The End is the Beginning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Noto Sans Marathi', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #0a0a0a;
+        }
+        
+        /* Header/Navigation */
+        header {
+            background: rgba(10, 20, 40, 0.95);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(255, 165, 0, 0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.3rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #ffa500;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+        
+        nav a:hover {
+            color: #ffa500;
+        }
+        
+        /* Hero Section - Book Cover Inspired */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0a1428 0%, #1a0f2e 40%, #2d1a0f 60%, #1a0a0f 100%);
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 50% 30%, rgba(255, 165, 0, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 70%, rgba(255, 100, 150, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 60%, rgba(100, 200, 255, 0.08) 0%, transparent 40%);
+            z-index: 1;
+            animation: glow 8s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% {
+                opacity: 0.8;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+        
+        .hero-landscape {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(180deg, transparent 0%, rgba(20, 10, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 2;
+        }
+        
+        .landscape-silhouette {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            background-image: 
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 250 Q150 150 300 200 T600 180 T900 210 T1200 150 L1200 400 L0 400 Z' fill='%23000'/%3E%3C/svg%3E");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .sun-graphic {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: sunFloat 4s ease-in-out infinite;
+        }
+        
+        @keyframes sunFloat {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+        
+        .sun-circle {
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 30% 30%, #ffa500, #ff8c00);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 100, 0, 0.3);
+            position: relative;
+        }
+        
+        .sun-rays {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 140px;
+        }
+        
+        .sun-ray {
+            position: absolute;
+            width: 4px;
+            height: 25px;
+            background: linear-gradient(to bottom, rgba(255, 165, 0, 0.8), transparent);
+            left: 50%;
+            transform: translateX(-50%);
+            transform-origin: 0 70px;
+            animation: rayPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes rayPulse {
+            0%, 100% {
+                opacity: 0.6;
+                height: 25px;
+            }
+            50% {
+                opacity: 1;
+                height: 35px;
+            }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .decorative-line {
+            font-size: 1.8rem;
+            color: #ffa500;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 165, 0, 0.2);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+        
+        .author-name {
+            font-size: 1.1rem;
+            color: #ffa500;
+            margin-top: 3rem;
+            letter-spacing: 2px;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2.5rem;
+        }
+        
+        .btn {
+            padding: 14px 40px;
+            font-size: 1rem;
+            border: 2px solid #ffa500;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+        
+        .btn-primary {
+            background: #ffa500;
+            color: #0a1428;
+        }
+        
+        .btn-primary:hover {
+            background: #ff8c00;
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.5);
+            transform: translateY(-3px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #ffa500;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 165, 0, 0.1);
+            box-shadow: 0 0 20px rgba(255, 165, 0, 0.3);
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0f0f1e 0%, #1a1a2e 100%);
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #ffa500;
+            letter-spacing: 2px;
+        }
+        
+        .content-card {
+            background: rgba(255, 165, 0, 0.05);
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            padding: 3rem;
+            border-radius: 8px;
+            color: #e0e0e0;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 2rem auto;
+        }
+        
+        .content-card h3 {
+            color: #ffa500;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .quote-section {
+            background: rgba(255, 165, 0, 0.08);
+            border-left: 4px solid #ffa500;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 4px;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #ffa500;
+            text-align: center;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .detail-card {
+            background: rgba(255, 165, 0, 0.05);
+            border: 1px solid rgba(255, 165, 0, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s;
+            color: #e0e0e0;
+        }
+        
+        .detail-card:hover {
+            background: rgba(255, 165, 0, 0.1);
+            transform: translateY(-5px);
+            border-color: #ffa500;
+        }
+        
+        .detail-card h4 {
+            color: #ffa500;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.1) 0%, rgba(255, 100, 150, 0.1) 100%);
+            text-align: center;
+            padding: 80px 20px;
+            border-top: 1px solid rgba(255, 165, 0, 0.3);
+            border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #ffa500;
+            letter-spacing: 2px;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #e0e0e0;
+        }
+        
+        footer {
+            background: #0a0a0a;
+            color: #888;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(255, 165, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .decorative-line {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">अंतः अस्ति प्रारंभः</div>
+                <nav>
+                    <ul>
+                        <li><a href="#about">परिचय</a></li>
+                        <li><a href="#philosophy">तत्त्व</a></li>
+                        <li><a href="#details">माहिती</a></li>
+                        <li><a href="#buy">विकत करा</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section - Book Cover Inspired -->
+    <section class="hero">
+        <div class="sun-graphic">
+            <div class="sun-rays">
+                <div class="sun-ray" style="transform: rotate(0deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(30deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(60deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(90deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(120deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(150deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(180deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(210deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(240deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(270deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(300deg) translateX(-50%);"></div>
+                <div class="sun-ray" style="transform: rotate(330deg) translateX(-50%);"></div>
+            </div>
+            <div class="sun-circle"></div>
+        </div>
+        
+        <div class="hero-landscape">
+            <div class="landscape-silhouette"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="decorative-line">॥ अंतः अस्ति प्रारंभः ॥</div>
+            <h1>अंतः अस्ति प्रारंभः</h1>
+            <p class="hero-subtitle">The End is the Beginning</p>
+            <div class="cta-buttons">
+                <a href="#buy" class="btn btn-primary">आता विकत करा</a>
+                <a href="#philosophy" class="btn btn-secondary">अधिक जाणून घ्या</a>
+            </div>
+            <div class="author-name">— वैभव धुस —</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">पुस्तकाविषयी</h2>
+            <div class="content-card">
+                <h3>रूपांतरणाचा प्रवास</h3>
+                <p>२०२५ मध्ये प्रकाशित, "अंतः अस्ति प्रारंभः" ही एक आधुनिक मराठी आत्मविकास पुस्तक आहे. या पुस्तकातून अर्जुन नाव्या तरुणाचा प्रवास दाखवले आहे जो लहान गावातून मोठे स्वप्न पाहतो.</p>
+                <p>समाजिक अडचणींना तोंड देऊन अर्जुनचे जीवन काय काय बदल आणतो, या सर्वच गोष्टी या पुस्तकात सांगितली आहेत. लेखक वैभव धुस यांनी साधा मराठी भाषेत आध्यात्मिक खोलीने या कथेला लिहिले आहे.</p>
+                <p>हे पुस्तक वाचकांना प्रेरणा देते आणि त्यांच्या आंतरिक शक्तीला जागृत करते.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section id="philosophy" class="section">
+        <div class="container">
+            <h2 class="section-title">मूळ तत्त्वज्ञान</h2>
+            <div class="content-card">
+                <h3>जिथे शेवट होतो, तिथूनच नवा प्रारंभ होतो</h3>
+                <p>या पुस्तकाचे केंद्रीय विचार असा आहे की प्रत्येक समाप्ती एक नवीन सुरुवातीचे संकेत देते. अपयश, नुकसान आणि बंद होणारी गोष्टी हे खरेच अंतच नसून रूपांतरणाचे चिन्ह आहेत.</p>
+                <p>या दृष्टिकोनातून आपण जीवनातील वाढीसाठी स्वीकार, चिंतन आणि नवीन साहस शोधू शकतो. हा तत्त्वज्ञान वाचकांना जीवनातील अडचणी सामोरे जाण्यासाठी शक्ती देतो.</p>
+                <div class="quote-section">
+                    "जिथे शेवट होतो तिथूनच नवा प्रारंभ होतो"
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Book Details Section -->
+    <section id="details" class="section">
+        <div class="container">
+            <h2 class="section-title">पुस्तक माहिती</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h4>भाषा</h4>
+                    <p>मराठी (भाग १ & २) आणि हिंदी</p>
+                </div>
+                <div class="detail-card">
+                    <h4>किंमत</h4>
+                    <p>₹260–₹270 प्रति भाग</p>
+                </div>
+                <div class="detail-card">
+                    <h4>प्रकार</h4>
+                    <p>पेपरबॅक आणि ई-बुक</p>
+                </div>
+                <div class="detail-card">
+                    <h4>प्रकाशक</h4>
+                    <p>वैभव प्रकाशन</p>
+                </div>
+                <div class="detail-card">
+                    <h4>लेखक</h4>
+                    <p>वैभव धुस</p>
+                </div>
+                <div class="detail-card">
+                    <h4>प्रकाशन वर्ष</h4>
+                    <p>2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Where to Buy Section -->
+    <section id="buy" class="section">
+        <div class="container">
+            <h2 class="section-title">कुठे विकत करावे</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h4>🌐 अधिकृत वेबसाईट</h4>
+                    <p>VaibhavDhus.com</p>
+                </div>
+                <div class="detail-card">
+                    <h4>📦 ऑनलाईन</h4>
+                    <p>मेहता बुक सेलर आणि इतर साइट्स</p>
+                </div>
+                <div class="detail-card">
+                    <h4>🏪 दुकान</h4>
+                    <p>महाराष्ट्रातील पुस्तक दुकानांमध्ये</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>आपल्या रूपांतरणाची सुरुवात करा?</h2>
+            <p>आजच आपली प्रत मिळवा आणि जीवनाचा नवा अध्याय लिहा.</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">आता ऑर्डर करा</a>
+                <a href="#philosophy" class="btn btn-secondary">अधिक जाणून घ्या</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 अंतः अस्ति प्रारंभः by वैभव धुस. सर्व हक्क राखीव.</p>
+    </footer>
+</body>
+</html>
